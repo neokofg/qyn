@@ -27,14 +27,21 @@ html {
     background: #9d9d9d;
 }
 
-
 ::selection {
-    background: transparent; /* Прозрачный фон при выделении */
-    color: #f7d583; /* Цвет текста при выделении будет наследован */
+    background: transparent;
+    color: #f7d583;
 }
 img {
-    /* Предотвращаем перетаскивание изображения */
     -moz-user-select: none; /* Firefox */
     -webkit-user-select: none; /* Safari и Chrome */
     -ms-user-select: none; /* IE10+/Edge */
+}
+
+.body-content {
+    opacity: 0.2;
+    transition: opacity 1.5s ease-out;
+}
+
+.body-content.loaded {
+    opacity: 1;
 }

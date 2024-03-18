@@ -1,7 +1,11 @@
-export default function Loader() {
+// eslint-disable-next-line react/prop-types
+export default function Loader({ progress }) {
     return (
-        <div className={"w-full h-[100vh] flex items-center justify-center text-6xl"}>
-            LOADER
+        <div className="loader-container">
+            <div className="background">
+                <div className="number" style={{bottom: `${progress}%`}}>{progress}</div>
+                <div className="cover" style={{height: `${progress}%`}}></div>
+            </div>
         </div>
     );
 }

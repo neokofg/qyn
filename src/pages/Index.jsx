@@ -7,30 +7,52 @@ import {useEffect, useState} from "react";
 import Loader from "../components/loader.jsx";
 
 export default function Index() {
-    const [isLoading, setIsLoading] = useState(true);
-
+    const [progress, setProgress] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
+    const isLoaded = sessionStorage.getItem('isLoaded');
     useEffect(() => {
-        // Функция, которая будет вызвана после загрузки страницы
-        const handleLoad = () => {
-            setIsLoading(false); // Скрываем лоадер
+        if(isLoaded === 'true') {
             document.querySelector('.body-content').classList.add('loaded');
-        };
+            if (document.readyState === 'complete') {
+                setIsLoading(false);
+            }
+        } else {
+            setIsLoading(true);
+            let loaded = 0;
+            const totalResources = document.images.length; // Допустим, мы отслеживаем загрузку изображений
 
-        window.addEventListener('load', handleLoad);
+            const updateProgress = () => {
+                loaded += 1;
+                setProgress(Math.floor((loaded / totalResources) * 100));
+            };
 
-        // Если страница уже загружена до момента монтирования этого компонента, сразу скроем лоадер
-        if (document.readyState === 'complete') {
-            setIsLoading(false);
+            Array.from(document.images).forEach(image => {
+                if (image.complete) {
+                    loaded += 1;
+                } else {
+                    image.addEventListener('load', updateProgress, { once: true });
+                    image.addEventListener('error', updateProgress, { once: true });
+                }
+            });
+
+            setProgress(Math.floor((loaded / totalResources) * 100));
+
+            if(progress === 100) {
+                setTimeout(() => {
+                    setIsLoading(false);
+                    document.querySelector('.body-content').classList.add('loaded');
+                    if (document.readyState === 'complete') {
+                        setIsLoading(false);
+                    }
+                    sessionStorage.setItem('isLoaded', 'true')
+                }, 500)
+            }
         }
-
-        return () => {
-            window.removeEventListener('load', handleLoad);
-        };
-    }, []);
+    }, [progress]);
 
     return (
         <div>
-            {isLoading && <Loader />}
+            {isLoading && <Loader progress={progress} />}
             <div className={"body-content"}>
                 <Welcome/>
                 <Customers/>

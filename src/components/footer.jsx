@@ -6,7 +6,6 @@ export default function Footer() {
 
     useEffect(() => {
         const handleScroll = () => {
-            // Проверяем, проскролили ли мы страницу более чем на 800 пикселей
             if (window.scrollY > 50) {
                 setIsScrolled(true);
             } else {
@@ -14,14 +13,11 @@ export default function Footer() {
             }
         };
 
-        // Добавляем обработчик события прокрутки
         window.addEventListener('scroll', handleScroll);
 
-        // Очищаем обработчик события, когда компонент будет размонтирован
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Выбираем классы в зависимости от состояния
     const bgButton = isScrolled
         ? "bg-white/50 backdrop-blur-sm"
         : "bg-white";

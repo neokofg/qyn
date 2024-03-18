@@ -13,7 +13,6 @@ export default function Header() {
     const [status, setStatus] = useState({ color: '#31CF38', text: 'мы онлайн' });
 
     useEffect(() => {
-        // Функция для проверки текущего времени и определения статуса онлайн/оффлайн
         const checkStatus = () => {
             const now = new Date();
             const localTime = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
@@ -21,18 +20,13 @@ export default function Header() {
 
             const hours = targetTime.getHours();
 
-            // Проверяем, находится ли текущее время в диапазоне с 09:00 до 18:00
             if (hours >= 9 && hours < 18) {
                 setStatus({ color: '#31CF38', text: 'мы онлайн' });
             } else {
                 setStatus({ color: '#FF0000', text: 'мы оффлайн' });
             }
         };
-
-        // Вызываем функцию проверки при монтировании компонента
         checkStatus();
-
-        // Можно также установить интервал для периодической проверки, если это необходимо
     }, []);
 
     return (

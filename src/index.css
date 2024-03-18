@@ -38,10 +38,39 @@ img {
 }
 
 .body-content {
-    opacity: 0.2;
-    transition: opacity 1.5s ease-out;
+    display: none;
 }
 
 .body-content.loaded {
-    opacity: 1;
+    display: inline;
+}
+
+.loader-container {
+    position: relative;
+    width: 100%; /* Полная ширина */
+    height: 100vh; /* Полная высота */
+    justify-content: center;
+    align-items: flex-end; /* Выравнивание числа по низу контейнера */
+}
+
+.background {
+    position: relative;
+    width: 100%; /* Ширина фона числа */
+    height: 100%; /* Полная высота */
+    background-color: white; /* Фон под числом */
+}
+
+.number {
+    font-size: 200px; /* Размер шрифта числа */
+    margin-left: 40px;
+    transition: all 0.1s linear;
+    position: absolute;
+}
+
+.cover {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transition: all 0.1s linear;
+    background-color: #BEC2BB; /* Цвет затемнения */
 }

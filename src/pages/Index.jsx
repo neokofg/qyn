@@ -2,9 +2,11 @@ import Welcome from "../components/.welcome/welcome.jsx";
 import Customers from "../components/customers/customers.jsx";
 import Showcase from "../components/projects/showcase.jsx";
 import Services from "../components/services/services.jsx";
-import Footer from "../components/footer.jsx";
+import Buttons from "../components/buttons.jsx";
 import {useEffect, useState} from "react";
 import Loader from "../components/loader.jsx";
+import Tableprice from "../components/tableprice/tableprice.jsx";
+import Footer from "../components/footer.jsx";
 
 export default function Index() {
     const [progress, setProgress] = useState(0);
@@ -48,7 +50,7 @@ export default function Index() {
                 }, 500)
             }
         }
-    }, [progress]);
+    }, [isLoaded, progress]);
 
     return (
         <div>
@@ -58,7 +60,9 @@ export default function Index() {
                 <Customers/>
                 <Showcase/>
                 <Services/>
+                <Tableprice/>
                 <Footer/>
+                <Buttons/>
             </div>
         </div>
     );

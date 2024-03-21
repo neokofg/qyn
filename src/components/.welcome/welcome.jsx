@@ -1,5 +1,5 @@
 import Header from "./header.jsx";
-import Footer from "../footer.jsx";
+import Buttons from "../buttons.jsx";
 import biglogo from "../../assets/biglogo.svg";
 
 export default function Welcome() {

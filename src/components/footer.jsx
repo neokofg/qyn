@@ -1,47 +1,22 @@
-import RoundedButton from "../ui/rounded_button.jsx";
-import { useState, useEffect } from 'react';
-
 export default function Footer() {
-    const [isScrolled, setIsScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    const bgButton = isScrolled
-        ? "bg-white/50 backdrop-blur-sm"
-        : "bg-white";
-    const iconColor = isScrolled
-        ? "#000000"
-        : "#9CA5AC";
-    const position = isScrolled
-        ? "bottom-10"
-        : "bottom-36";
-
-    const buttonIcon = (
-        <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect y="6" width="2" height="7" fill={iconColor}/>
-            <rect x="4" width="2" height="13" fill={iconColor}/>
-            <rect x="8" y="6" width="2" height="7" fill={iconColor}/>
-            <rect x="12" y="5" width="2" height="8" fill={iconColor}/>
-            <rect x="16" y="3" width="2" height="10" fill={iconColor}/>
-        </svg>
-    );
     return (
-        <div className={position + " " + "fixed transition-all ease-in-out duration-500 w-full"}>
-            <div className={"flex inset-0 container mx-auto justify-between items-center pb-6"}>
-                <button className={bgButton + " " + "transition-all ease-in-out duration-500 rounded-[36px] py-[10px] px-[14px]"}>написать в тг</button>
-                <RoundedButton bg={bgButton} icon={buttonIcon}/>
+        <div>
+            <div className={"py-16 border-b-2"}>
+            </div>
+            <div className={"container mx-auto mt-24"}>
+                <div className={"flex justify-center items-center w-full h-[250px] bg-contain bg-no-repeat bg-center bg-[url(/footer.png)]"}>
+                    <button className={"py-5 px-7 bg-[#BEC2BB] z-10"}>
+                        <span className={"text-white text-4xl italic underline underline-offset-8 decoration-2"}>Связаться</span>
+                    </button>
+                </div>
+                <h3 className={"text-6xl text-[#BEC2BB] text-center mt-5"}>qyn.studio@mail.ru</h3>
+                <div className={"text-xl flex gap-5 justify-center mt-5"}>
+                    <a className={""} href="#">+7 (900) 000-00-00</a>
+                    <a className={"underline ml-2"} href="#">WhatsApp</a>
+                    <a className={"underline ml-2"} href="#">Telegram</a>
+                </div>
+            </div>
+            <div className={"py-10"}>
             </div>
         </div>
     );

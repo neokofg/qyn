@@ -3,7 +3,7 @@ import img from '../../assets/services/img.png'
 // eslint-disable-next-line react/prop-types
 function AdvantageList({advantages = []}) {
     return (
-        <div className={"text-black flex flex-wrap max-w-96"}>
+        <div className={"text-white flex flex-wrap max-w-96"}>
             {advantages.map((text, index) => (
                 <div className={"bg-white mt-2 mr-2 px-3 py-3 font-normal"} key={index}>{text}</div>
             ))}
@@ -12,9 +12,9 @@ function AdvantageList({advantages = []}) {
     );
 }
 // eslint-disable-next-line react/prop-types
-export default function ServiceDescription({bg, heading, text, color = 'text-black', advantages}) {
+export default function ServiceDescription({heading, text, advantages}) {
     return (
-        <div className={bg + " " + color}>
+        <div className={"bg-white hover:bg-[#BEC2BB] text-black hover:text-white transition-all ease-out advantages-black"}>
             <div className={"grid grid-cols-2 pb-20 pt-10 container mx-auto"}>
                 <div className={"col-span-1"}>
                     <h3 className={"text-2xl"}>{heading}</h3>

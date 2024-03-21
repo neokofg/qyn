@@ -29,7 +29,7 @@ html {
 
 ::selection {
     background: transparent;
-    color: #f7d583;
+    color: #BEC2BB;
 }
 img {
     -moz-user-select: none; /* Firefox */
@@ -73,4 +73,35 @@ img {
     width: 100%;
     transition: all 0.1s linear;
     background-color: #BEC2BB; /* Цвет затемнения */
+}
+
+.advantages-black:hover div.flex-wrap {
+    color: black;
+}
+.price-text:hover p {
+    color: white;
+}
+.price-text:hover span {
+    color: white;
+}
+.price-text:hover h3 {
+    color: white;
+}
+
+.animate-show:hover .animate-up-fast {
+    transform: translateY(-150%);
+    transition: transform 0.1s ease-in-out;
+}
+
+.animate-show:hover .animate-up-slow {
+    transform: translateY(0%);
+    height: 100px;
+    transition: transform 0.2s ease-in-out;
+}
+.animate-show {
+    overflow: hidden;
+}
+.animate-up-fast, .animate-up-slow {
+    transform: translateY(100%);
+    transition: transform 0.2s ease-in-out;
 }

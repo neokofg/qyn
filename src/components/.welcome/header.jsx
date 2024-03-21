@@ -31,8 +31,8 @@ export default function Header() {
 
     return (
         <div className={"flex container mx-auto pt-6 items-center"}>
-            <Logo />
-            <div className={"flex flex-col ml-[120px] text-base font-normal"}>
+            <a href="/"><Logo /></a>
+            <div className={"flex flex-col ml-[70px] text-base font-normal"}>
                 <p>Якутск +9 GMT</p>
                 <p className={"flex items-baseline"}>
                     <span>
@@ -44,10 +44,9 @@ export default function Header() {
                 </p>
             </div>
             <div className={"flex ml-auto items-center"}>
-                <a className={"mr-[32px] cursor-pointer"}>Кейсы</a>
-                <a className={"mr-[32px] cursor-pointer"}>Услуги</a>
-                <a className={"mr-[32px] cursor-pointer"}>О нас</a>
-                <a className={"mr-[32px] cursor-pointer"}>Контакты</a>
+                <a href={'/cases'} className={"mr-[32px] cursor-pointer"}>Кейсы</a>
+                <a href={'/services'} className={"mr-[32px] cursor-pointer"}>Услуги</a>
+                <a href={'/contacts'} className={"mr-[32px] cursor-pointer"}>Контакты</a>
                 <RoundedButton icon={buttonIcon}/>
             </div>
         </div>

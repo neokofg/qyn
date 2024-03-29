@@ -49,6 +49,7 @@ export default function Header() {
                 <a href={'/contacts'} className={"mr-[32px] cursor-pointer"}>Контакты</a>
                 <RoundedButton icon={buttonIcon}/>
             </div>
+
         </div>
     );
 }

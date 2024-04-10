@@ -25,7 +25,7 @@ export default function Buttons() {
         ? "#000000"
         : "#9CA5AC";
     const position = isScrolled
-        ? "bottom-10"
+        ? "bottom-12"
         : "bottom-36";
 
     const buttonIcon = (
@@ -40,7 +40,7 @@ export default function Buttons() {
     return (
         <div className={position + " " + "fixed transition-all ease-in-out duration-500 w-full"}>
             <div className={"flex inset-0 container mx-auto justify-between items-center pb-6"}>
-                <button className={bgButton + " " + "transition-all ease-in-out duration-500 rounded-[36px] py-[10px] px-[14px]"}>написать в тг</button>
+                <button className={bgButton + " " + "transition-all ease-in-out duration-500 rounded-[36px] py-[10px] px-[14px]"}>Оставить заявку</button>
                 <RoundedButton bg={bgButton} icon={buttonIcon}/>
             </div>
         </div>

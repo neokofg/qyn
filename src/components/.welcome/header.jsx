@@ -30,7 +30,7 @@ export default function Header() {
     }, []);
 
     return (
-        <div className={"flex container mx-auto pt-6 items-center"}>
+        <div className={"absolute inset-x-0 top-0 flex z-20 container mx-auto pt-6 items-center"}>
             <a href="/"><Logo /></a>
             <div className={"flex flex-col ml-[70px] text-base font-normal"}>
                 <p>Якутск +9 GMT</p>

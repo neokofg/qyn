@@ -1,11 +1,17 @@
+import {useNavigate} from "react-router-dom";
+
 export default function Footer() {
+    const navigate = useNavigate()
+    function redirect() {
+        navigate('/order')
+    }
     return (
         <div>
             <div className={"py-16 border-b-2"}>
             </div>
             <div className={"container mx-auto mt-24"}>
                 <div className={"flex justify-center items-center w-full h-[250px] bg-contain bg-no-repeat bg-center bg-[url(/footer.png)]"}>
-                    <button className={"py-5 px-7 bg-[#BEC2BB] z-10"}>
+                    <button onClick={redirect} className={"py-5 px-7 bg-[#BEC2BB] z-10"}>
                         <span className={"text-white text-4xl italic underline underline-offset-8 decoration-2"}>Связаться</span>
                     </button>
                 </div>

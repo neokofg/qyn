@@ -1,9 +1,10 @@
 import RoundedButton from "../ui/rounded_button.jsx";
 import { useState, useEffect } from 'react';
+import {useNavigate} from "react-router-dom";
 
 export default function Buttons() {
     const [isScrolled, setIsScrolled] = useState(false);
-
+    const navigate = useNavigate();
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 50) {
@@ -37,10 +38,14 @@ export default function Buttons() {
             <rect x="16" y="3" width="2" height="10" fill={iconColor}/>
         </svg>
     );
+
+    function redirect() {
+        navigate('/order')
+    }
     return (
-        <div className={position + " " + "fixed transition-all ease-in-out duration-500 w-full"}>
+        <div className={position + " " + "fixed transition-all ease-in-out duration-500 w-full z-20"}>
             <div className={"flex inset-0 container mx-auto justify-between items-center pb-6"}>
-                <button className={bgButton + " " + "transition-all ease-in-out duration-500 rounded-[36px] py-[10px] px-[14px]"}>Оставить заявку</button>
+                <button onClick={redirect} className={bgButton + " " + "transition-all ease-in-out duration-500 rounded-[36px] py-[10px] px-[14px]"}>Оставить заявку</button>
                 <RoundedButton bg={bgButton} icon={buttonIcon}/>
             </div>
         </div>

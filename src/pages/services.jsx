@@ -8,7 +8,7 @@ export default function ServicesPage() {
         <div>
             <Header/>
             <Services/>
-            <OutCustomers/>
+            {/*<OutCustomers/>*/}
             <Footer/>
         </div>
     );

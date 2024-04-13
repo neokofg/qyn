@@ -52,19 +52,19 @@ export default function Welcome() {
         return <primitive object={gltf.scene} />
     }
     return (
-        <div className={"bg-[#E9E9E9] h-[800px]"}>
+        <div className={"bg-[#E9E9E9] h-[800px] relative"}>
             <Header/>
-            {/*<div className={"absolute z-30 inset-x-0 bottom-24 flex h-full justify-center items-center"}>*/}
-            {/*    <img src={biglogo} draggable={"false"} alt="Q'yh Studio"/>*/}
-            {/*</div>*/}
-            <Canvas camera={{fov: 28, near: 1, far: 20000}}>
-                <ambientLight intensity={0.1}/>
+            <div className={"absolute z-10 inset-x-0 bottom-2 flex h-full justify-center items-center"}>
+                <img src={biglogo} draggable={"false"} alt="Q'yh Studio"/>
+            </div>
+            <Canvas camera={{fov: 26, near: 1, far: 20000}}>
+                <ambientLight intensity={1}/>
                 <directionalLight color="red" position={[0, 0, 5]}/>
                 <Suspense fallback={null}>
                     <Ocean/>
                     <Scene/>
                 </Suspense>
-                <OrbitControls/>
+                {/*<OrbitControls/>*/}
                 <Sky scale={1000} sunPosition={[200, 150, 1000]} turbidity={0.1}/>
             </Canvas>
         </div>

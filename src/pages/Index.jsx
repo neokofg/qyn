@@ -60,7 +60,7 @@ export default function Index() {
                 <Customers/>
                 <Showcase/>
                 <Services/>
-                <Tableprice/>
+                {/*<Tableprice/>*/}
                 <Footer/>
                 <Buttons/>
             </div>

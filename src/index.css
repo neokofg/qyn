@@ -105,3 +105,24 @@ img {
     transform: translateY(100%);
     transition: transform 0.2s ease-in-out;
 }
+
+input:focus {
+    outline: none;
+}
+select:focus {
+    outline: none;
+}
+select {
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    border-image-width: 0;
+}
+
+.radio-custom:checked  {
+    background: #BEC2BB;
+}
+
+textarea:focus {
+    outline: none
+}

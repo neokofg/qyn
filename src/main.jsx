@@ -6,6 +6,7 @@ import Index from "./pages/Index.jsx";
 import Cases from "./pages/cases.jsx";
 import ServicesPage from "./pages/services.jsx";
 import Contacts from "./pages/contacts.jsx";
+import Order from "./pages/order.jsx";
 
 function disableCtrlScrollZoom(event) {
     // Проверяем, нажата ли клавиша Ctrl (event.ctrlKey) и является ли событие прокруткой колесика мыши (event.type === 'wheel')
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     {
         path: "/contacts",
         element: <Contacts/>
+    },
+    {
+        path: "/order",
+        element: <Order />
     }
 ]);
 

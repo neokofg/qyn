@@ -26,8 +26,8 @@ export default function Buttons() {
         ? "#000000"
         : "#9CA5AC";
     const position = isScrolled
-        ? "bottom-12"
-        : "bottom-36";
+        ? "bottom-2 md:bottom-12"
+        : "bottom-10 md:bottom-36";
 
     const buttonIcon = (
         <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +44,7 @@ export default function Buttons() {
     }
     return (
         <div className={position + " " + "fixed transition-all ease-in-out duration-500 w-full z-20"}>
-            <div className={"flex inset-0 container mx-auto justify-between items-center pb-6"}>
+            <div className={"flex inset-0 px-4 md:container md:px-0 mx-auto justify-between items-center pb-6"}>
                 <button onClick={redirect} className={bgButton + " " + "transition-all ease-in-out duration-500 rounded-[36px] py-[10px] px-[14px]"}>Оставить заявку</button>
                 <RoundedButton bg={bgButton} icon={buttonIcon}/>
             </div>

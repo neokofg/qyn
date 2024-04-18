@@ -16,7 +16,7 @@ export default function Footer() {
                     </button>
                 </div>
                 <h3 className={"text-[32px] md:text-6xl text-[#BEC2BB] text-center mt-5"}>qyn.studio@mail.ru</h3>
-                <div className={"text-xl flex gap-5 justify-center mt-5"}>
+                <div className={"text-xl flex flex-wrap gap-5 justify-center mt-5"}>
                     <a className={""} href="#">+7 (900) 000-00-00</a>
                     <a className={"underline ml-2"} href="#">WhatsApp</a>
                     <a className={"underline ml-2"} href="#">Telegram</a>

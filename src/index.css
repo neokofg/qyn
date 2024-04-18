@@ -78,6 +78,9 @@ img {
 .advantages-black:hover div.flex-wrap {
     color: black;
 }
+.advantages-black:hover .hidden-container {
+    display: inline;
+}
 .price-text:hover p {
     color: white;
 }

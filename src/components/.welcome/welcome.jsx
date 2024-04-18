@@ -58,7 +58,7 @@ export default function Welcome() {
     }
 
     return (
-        <div className={"bg-[#E9E9E9] h-[800px] relative"}>
+        <div className={"bg-[#E9E9E9] h-[600px] md:h-[800px] relative"}>
         <Header/>
             <img className={"absolute z-10 inset-0 m-auto"} src={biglogo} draggable={"false"} alt="Q'yh Studio"/>
             <Canvas camera={{fov: 26, near: 1, far: 20000}}>

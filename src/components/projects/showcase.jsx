@@ -6,10 +6,23 @@ import img3 from "../../assets/projects/img_3.png";
 import Advert from "./advert.jsx";
 
 // eslint-disable-next-line react/prop-types
-export default function Showcase() {
+export default function Showcase({filters}) {
     return (
         <div>
-                <div className={"grid gap-0 grid-cols-2 md:grid-cols-2 xl:grid-cols-3 min-[3000px]:grid-cols-5"}>
+                {filters != null ? (
+                    <div className={"container py-10 text-xl mx-auto flex justify-between"}>
+                        <p>Сайты</p>
+                        <p>Приложения</p>
+                        <p>Маркетинг</p>
+                        <p>Motion</p>
+                        <p>Сервисы</p>
+                        <p>Брендинг</p>
+                    </div>
+                ) : (
+                    <div>
+                    </div>
+                )}
+                <div className={"grid gap-0 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 min-[3000px]:grid-cols-5"}>
                         <ShowcaseImage title={"GS Project"} type={"Моб.приложение"}
                                        text={"Концепция, дизайн, разработка, продвижение, 3D, запуск MVP"} img={img}
                                        alt={1}/>

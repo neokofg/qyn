@@ -7,7 +7,7 @@ export default function CaseDetail({detail_text, detail_photo}) {
                     {detail_text}
                 </h4>
             </div>
-            <div className={"md:basis-1/2 w-full bg-[#BEC2BB] h-[375px] md:h-full flex justify-center items-center"}>
+            <div className={"md:basis-1/2 w-full bg-[#BEC2BB] py-20 md:h-full flex justify-center items-center"}>
                 <img className={"max-h-[355px] md:max-h-[535px]"} src={detail_photo} alt=""/>
             </div>
         </div>

@@ -8,7 +8,7 @@ export default function Cases() {
         <div>
             <Header/>
             <Showreel/>
-            <Showcase/>
+            <Showcase filters={true}/>
             <Footer/>
         </div>
     );

@@ -30,19 +30,34 @@ export default function Header() {
         };
         checkStatus();
     }, []);
-    const [topPosition, setTopPosition] = useState('-320px');
+    const [topPosition, setTopPosition] = useState('-1000px');
     function HeaderToggle() {
-        setTopPosition(prevTopPosition => (prevTopPosition === '0' ? '-320px' : '0'));
-        if(topPosition === '-320px') {
-            setButtonIcon(<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="1.41431" width="14" height="2" rx="1" transform="rotate(45 1.41431 0)" fill="#9CA5AC"/>
-                <rect y="9.89941" width="14" height="2" rx="1" transform="rotate(-45 0 9.89941)" fill="#9CA5AC"/>
-            </svg>)
+        if(window.outerWidth > 768) {
+            setTopPosition(prevTopPosition => (prevTopPosition === '0' ? '-1000px' : '0'));
+            if(topPosition === '-1000px') {
+                setButtonIcon(<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1.41431" width="14" height="2" rx="1" transform="rotate(45 1.41431 0)" fill="#9CA5AC"/>
+                    <rect y="9.89941" width="14" height="2" rx="1" transform="rotate(-45 0 9.89941)" fill="#9CA5AC"/>
+                </svg>)
+            } else {
+                setButtonIcon(<svg width="14" height="6" viewBox="0 0 14 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="14" height="1.5" rx="0.75" fill="#9CA5AC"/>
+                    <rect y="4.5" width="14" height="1.5" rx="0.75" fill="#9CA5AC"/>
+                </svg>)
+            }
         } else {
-            setButtonIcon(<svg width="14" height="6" viewBox="0 0 14 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="14" height="1.5" rx="0.75" fill="#9CA5AC"/>
-                <rect y="4.5" width="14" height="1.5" rx="0.75" fill="#9CA5AC"/>
-            </svg>)
+            setTopPosition(prevTopPosition => (prevTopPosition === '64' ? '-1000px' : '64'));
+            if(topPosition === '-1000px') {
+                setButtonIcon(<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1.41431" width="14" height="2" rx="1" transform="rotate(45 1.41431 0)" fill="#9CA5AC"/>
+                    <rect y="9.89941" width="14" height="2" rx="1" transform="rotate(-45 0 9.89941)" fill="#9CA5AC"/>
+                </svg>)
+            } else {
+                setButtonIcon(<svg width="14" height="6" viewBox="0 0 14 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="14" height="1.5" rx="0.75" fill="#9CA5AC"/>
+                    <rect y="4.5" width="14" height="1.5" rx="0.75" fill="#9CA5AC"/>
+                </svg>)
+            }
         }
     }
 
@@ -86,23 +101,36 @@ export default function Header() {
             );
         } else {
             return (
-                <div className={"w-full h-[64px] flex justify-between items-center px-5 bg-white z-20"}>
-                    <div className={"flex justify-start items-center"}>
-                        <a className={"w-1/3"} href="/"><Logo/></a>
-                        <div className={"flex flex-col ml-2 text-base font-normal"}>
-                            <p>Якутск +9 GMT</p>
-                            <p className={"flex items-baseline"}>
+                <div>
+                    <div className={"w-full h-[64px] flex justify-between items-center px-5 bg-white z-50"}>
+                        <div className={"flex justify-start items-center"}>
+                            <a className={"w-1/3"} href="/"><Logo/></a>
+                            <div className={"flex flex-col ml-2 text-base font-normal"}>
+                                <p>Якутск +9 GMT</p>
+                                <p className={"flex items-baseline"}>
                             <span>
                                 <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="4.6665" cy="4" r="4" fill={status.color}/>
                                 </svg>
                             </span>
-                                <span className={"opacity-40 ml-2"}>{status.text}</span>
-                            </p>
+                                    <span className={"opacity-40 ml-2"}>{status.text}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div onClick={HeaderToggle}><RoundedButton icon={buttonIcon}/></div>
+                    </div>
+                    <div className={"absolute z-20 inset-x-0 w-full bg-white h-screen md:h-[320px] pt-10 md:pt-0 md:py-32 md:px-64 transition-all"}
+                         style={{top: topPosition}}>
+                        <div className={"flex flex-wrap justify-center text-center"}>
+                            <HeaderItem title={"Маркетинг"} text={""} border={true}/>
+                            <HeaderItem title={"Брендинг"} text={""} border={false}/>
+                            <HeaderItem title={"Сайт"} text={""} border={true}/>
+                            <HeaderItem title={"MVP"} text={""} border={false}/>
+                            <HeaderItem title={"Приложение"} text={""} border={true}/>
+                            <HeaderItem title={"SMM / Reels"} text={""} border={false}/>
                         </div>
                     </div>
-                    <div onClick={HeaderToggle}><RoundedButton icon={buttonIcon}/></div>
                 </div>
             );
         }

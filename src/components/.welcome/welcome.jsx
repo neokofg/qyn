@@ -7,6 +7,7 @@ import {OrbitControls, Sky} from "@react-three/drei";
 import biglogo from "../../assets/biglogo.svg";
 import WaterSurfaceComplex from "../../WaterSurface/WaterSurfaceComplex.tsx";
 import FluidFX from "../../WaterSurface/InteractiveFX/FluidFX.tsx";
+import {MeshStandardMaterial} from "three";
 export default function Welcome() {
     function Scene() {
         const gltf = useLoader(GLTFLoader, '/site2.gltf');
@@ -45,12 +46,11 @@ export default function Welcome() {
                 <primitive object={gltf.scene}/>
                 <EffectComposer>
                     <Bloom
-                        intensity={0.5} // Интенсивность свечения
-                        kernelSize={2} // Размер ядра свечения для более мягкого эффекта
-                        luminanceThreshold={0.1}
-                        luminanceSmoothing={2}
-                        height={100}
-
+                        intensity={3} // Интенсивность свечения
+                        kernelSize={1} // Размер ядра свечения для более мягкого эффекта
+                        luminanceThreshold={0}
+                        luminanceSmoothing={0.75}
+                        height={300}
                     />
                 </EffectComposer>
             </>

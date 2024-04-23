@@ -2,10 +2,10 @@ import {Map, Placemark, YMaps} from "@pbe/react-yandex-maps";
 export default function Contact() {
     return (
         <div>
-            <div className={"container mx-auto flex justify-between gap-56 mt-24 mb-32"}>
-                <h1 className={"text-8xl"}>Контакты</h1>
+            <div className={"px-5 md:px-0 container mx-auto block md:flex justify-between gap-56 mt-5 md:mt-24 mb-32"}>
+                <h1 className={"text-[48px] md:text-8xl italic"}>Контакты</h1>
                 <div className={"mr-6"}>
-                    <h3 className={"text-6xl text-[#BEC2BB] text-end"}>qyn.studio@mail.ru</h3>
+                    <h3 className={"text-[32px] md:text-6xl text-[#BEC2BB] text-start md:text-end"}>qyn.studio@mail.ru</h3>
                     <div className={"mt-5 text-xl"}>
                         <a className={"underline"} href="#">WhatsApp</a>
                         <a className={"underline ml-6"} href="#">Telegram</a>

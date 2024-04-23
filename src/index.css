@@ -74,12 +74,18 @@ img {
     transition: all 0.1s linear;
     background-color: #BEC2BB; /* Цвет затемнения */
 }
-
-.advantages-black:hover div.flex-wrap {
-    color: black;
+.advantages-black .hidden-container {
+    max-height: 0; /* начальное состояние - скрыто */
+    opacity: 0; /* полностью прозрачный */
+    overflow: hidden; /* предотвращаем отображение содержимого за пределами max-height */
+    transition: opacity 0.3s, max-height 0.3s;
+}
+.advantages-black:hover p {
+    color: white;
 }
 .advantages-black:hover .hidden-container {
-    display: inline;
+    max-height: 1080px; /* максимальная высота достаточная для отображения всего содержимого */
+    opacity: 1; /* делаем содержимое полностью видимым */
 }
 .price-text:hover p {
     color: white;
@@ -90,7 +96,13 @@ img {
 .price-text:hover h3 {
     color: white;
 }
-
+.animate-show-adaptive:hover .animate-up-fast {
+    transform: translateY(0%);
+    transition: transform 0.1s ease-in-out;
+}
+.animate-show-adaptive {
+    overflow: hidden;
+}
 .animate-show:hover .animate-up-fast {
     transform: translateY(-150%);
     transition: transform 0.1s ease-in-out;

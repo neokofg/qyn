@@ -32,43 +32,45 @@ export default function FluidFX({
 	pressureIterations = 2,
 	fluidColor = fluidColorFn,
 }: FXFluidProps) {
-	const { ref: materialRef, refPointer } = useContext(WaterContext);
+	if(window.outerWidth > 768) {
+		const { ref: materialRef, refPointer } = useContext(WaterContext);
 
-	const { size, dpr } = useThree((state) => {
-		return { size: state.size, dpr: state.viewport.dpr };
-	});
-
-	const [updateFluid, setFluid] = useFluid({
-		size,
-		dpr,
-	});
-	const [updateBlending] = useBlending({ size, dpr });
-
-	setFluid({
-		density_dissipation: densityDissipation,
-		velocity_dissipation: velocityDissipation,
-		velocity_acceleration: velocityAcceleration,
-		pressure_dissipation: pressureDissipation,
-		splat_radius: splatRadius,
-		curl_strength: curlStrength,
-		pressure_iterations: pressureIterations,
-		fluid_color: fluidColor,
-	});
-
-	const updatePointer = usePointer();
-
-	useFrame((props) => {
-		const fluid = updateFluid(props, {
-			pointerValues: updatePointer(refPointer.current),
-		});
-		const fx = updateBlending(props, {
-			//texture: bgTexture,
-			map: fluid,
-			alphaMap: false,
+		const { size, dpr } = useThree((state) => {
+			return { size: state.size, dpr: state.viewport.dpr };
 		});
 
-		materialRef.current!.material.uniforms.u_fx.value = fx;
-	});
+		const [updateFluid, setFluid] = useFluid({
+			size,
+			dpr,
+		});
+		const [updateBlending] = useBlending({ size, dpr });
 
-	return null;
+		setFluid({
+			density_dissipation: densityDissipation,
+			velocity_dissipation: velocityDissipation,
+			velocity_acceleration: velocityAcceleration,
+			pressure_dissipation: pressureDissipation,
+			splat_radius: splatRadius,
+			curl_strength: curlStrength,
+			pressure_iterations: pressureIterations,
+			fluid_color: fluidColor,
+		});
+
+		const updatePointer = usePointer();
+
+		useFrame((props) => {
+			const fluid = updateFluid(props, {
+				pointerValues: updatePointer(refPointer.current),
+			});
+			const fx = updateBlending(props, {
+				//texture: bgTexture,
+				map: fluid,
+				alphaMap: false,
+			});
+
+			materialRef.current!.material.uniforms.u_fx.value = fx;
+		});
+
+		return null;
+	}
 }

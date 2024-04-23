@@ -11,27 +11,29 @@ import {MeshStandardMaterial} from "three";
 export default function Welcome() {
     function Scene() {
         const gltf = useLoader(GLTFLoader, '/site2.gltf');
-        const camera = useThree((state) => state.camera)
         gltf.scene.rotation.y = 0;
         gltf.scene.position.y = -2.1;
         gltf.scene.position.z = -6;
-        const prevMouseX = useRef(0);
-        useEffect(() => {
-            const handleMouseMove = (event) => {
-                if (prevMouseX.current === 0) {
-                    prevMouseX.current = event.clientX; // Инициализируем при первом движении
-                } else {
-                    const deltaX = event.clientX - prevMouseX.current;
-                    prevMouseX.current = event.clientX;
-                    const rotationSpeed = 0.00001;
-                    camera.rotation.y -= deltaX * rotationSpeed;
-                }
-            };
-            window.addEventListener('mousemove', handleMouseMove);
-            return () => {
-                window.removeEventListener('mousemove', handleMouseMove);
-            };
-        }, [gltf.scene.rotation.y]);
+        if(window.outerWidth > 768) {
+            const camera = useThree((state) => state.camera)
+            const prevMouseX = useRef(0);
+            useEffect(() => {
+                const handleMouseMove = (event) => {
+                    if (prevMouseX.current === 0) {
+                        prevMouseX.current = event.clientX; // Инициализируем при первом движении
+                    } else {
+                        const deltaX = event.clientX - prevMouseX.current;
+                        prevMouseX.current = event.clientX;
+                        const rotationSpeed = 0.00001;
+                        camera.rotation.y -= deltaX * rotationSpeed;
+                    }
+                };
+                window.addEventListener('mousemove', handleMouseMove);
+                return () => {
+                    window.removeEventListener('mousemove', handleMouseMove);
+                };
+            }, [gltf.scene.rotation.y]);
+        }
         return <primitive object={gltf.scene} />
     }
 

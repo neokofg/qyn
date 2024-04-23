@@ -122,7 +122,7 @@ export default function Header() {
                     </div>
                     <div className={"absolute z-20 inset-x-0 w-full bg-white h-screen md:h-[320px] pt-10 md:pt-0 md:py-32 md:px-64 transition-all"}
                          style={{top: topPosition}}>
-                        <div className={"flex flex-wrap justify-center text-center"}>
+                        <div className={"grid grid-cols-2 justify-center text-center"}>
                             <HeaderItem title={"Маркетинг"} text={""} border={true}/>
                             <HeaderItem title={"Брендинг"} text={""} border={false}/>
                             <HeaderItem title={"Сайт"} text={""} border={true}/>
